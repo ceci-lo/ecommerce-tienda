@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>search result</title>
+
+  <!----iconos-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!----hoja css---->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/Styles/style.css">
+  <link rel="stylesheet" href="/Styles/searchResult.css">
+
+</head>
+
+<body>
+  <!---------------------------->
+  <!--Inicio de oferta banner-->
+  <!---------------------------->
+  <section class="ofertaBanner text-center">
+    3 y 6 cuotas sin interés
+  </section>
+
+  <!---------------------------->
+  <!--Inicio de cabecera NAVS -->
+  <!---------------------------->
+  <nav class="navbar navbar-expand-lg ">
+  
+    <div class="container" id="container-nav">
+      
+      <div class="container colapsar d-flex align-items-lg-center" id="colapsar">
+        <div class="logo"> <a class="navbar-brand me-auto" href="#">Logo</a></div>
+        <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header border-bottom border-danger-subtle">
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body d-flex justify-content-lg-end justify-content-sm-center">
+
+            <ul class="navbar-nav">
+              <li class="nav-item  ">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Producto 1</a></li>
+                  <li><a class="dropdown-item" href="#">Producto 2</a></li>
+                  <li><a class="dropdown-item" href="#">Producto 3</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nosotros</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="ms-auto d-flex">
+          <ul class="navbar-nav iconos-nav">
+            <li class="nav-item search-container me-3" id="searchButton">
+              <i class="fa fa-search icono" aria-hidden="true"></i>
+            </li>
+            <li class="nav-item"><i class="fa-solid fa-user icono"></i></li>
+            <li class="nav-item"><i class="fas fa-cart-arrow-down icono"></i></li>
+          </ul>
+          <button class="navbar-toggler colapso-nav" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <!--input del search-->
+      <div class="search-container" id="searchBox">
+        <form>
+          <input class="search" id="searchInput" type="text" placeholder="Buscar..." aria-hidden="false">
+          <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+        </form>
+      </div>
+    
+    </div>
+
+  </nav>
+
+  <!--------------------------------------->
+  <!-- INICIO DE :  filtros de mayor y menor-> 
+ <!--------------------------------------->
+
+  <section class="searchResult-container-filtros">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4 titleResultado" id="titleResultado">
+          <h2 class="titleResult">Cartera</h2> <!--Cambiar con javascript-->
+          <p>100 resultados coincidentes</p> <!--Contador de resultado encontrado-->
+        </div>
+        <div class="col-sm-6 col-md-8 ordenarPor">
+          <div class="row">
+            <div class="col-sm-5 col-md-8 titleResultP">
+              <p>ordenar por :</p>
+            </div>
+            <div class="col-sm-7 col-md-4"><select class="col-md-6 form-select form-select-sm"
+                aria-label=".form-select-sm example">
+                <option value="1" selected>Mayor precio</option>
+                <option value="2">Menor precio</option>
+                <option value="3">Más relevante</option>
+
+              </select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--------------------------------------->
+  <!-- INICIO DE : filtro y visualización-->
+  <!--------------------------------------->
+
+  <section class="searchResult-container-filtroYvisualizacion">
+    <div class="container">
+      <div class="row">
+        <button class="btn  d-md-none mb-2 color-acentuacion w-25 btn-filtros" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          Filtros
+        </button>
+
+        <!--inicio ofcanvans-->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="form-check form-switch">
+              <label class="form-check-label " for="flexSwitchCheckChecked">Envio gratis</label>
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+            </div>
+            <div class="filtros-categorias-categoria">
+
+              <ul class="filtros-catergorias-listado-titulo">
+
+                <li> <a href="#"><strong> Bandolera</strong></a><span class="contador-categorias">(10)</span></li>
+
+                <ul class="listado-caracteristicas">
+                  <li><a> Cuero</a><span class="contador-categorias">(3)</span> </li>
+                  <li><a>Cuero sintético</a><span class="contador-categorias">(2)</span></li>
+                  <li><a> Lona</a><span class="contador-categorias">(4)</span></li>
+                  <li><a> Tela acolchada</a><span class="contador-categorias">(1)</span></li>
+                </ul>
+
+                <li><a href="#"><strong> Sobre </strong></a><span class="contador-categorias">(30)</span></li>
+                <ul class="listado-caracteristicas">
+                  <li><a> Satén</a><span class="contador-categorias">(12)</span></li>
+                  <li><a> Cuero</a><span class="contador-categorias">(5)</span></li>
+                  <li><a> Terciopelo</a><span class="contador-categorias">(10)</span></li>
+                  <li><a> Acrílico </a><span class="contador-categorias">(2)</span></li>
+                  <li><a> Metal</a><span class="contador-categorias">(1)</span></li>
+                </ul>
+
+
+                <li><a href="#"><strong> Riñonera</strong></a> <span class="contador-categorias">(15)</span></li>
+                <ul class="listado-caracteristicas">
+                  <li><a>Nylon</a><span class="contador-categorias">(10)</span></li>
+                  <li><a> Cuero</a> <span class="contador-categorias">(2) </span></li>
+                  <li><a> Lona</a> <span class="contador-categorias"> (3)</span></li>
+                  <li><a>Poliéster impermeable</a><span class="contador-categorias">(5)</span></li>
+                </ul>
+
+                <li><a href="#"><strong> Mochila</strong></a><span class="contador-categorias">(25)</span></li>
+                <ul class="listado-caracteristicas">
+                  <li><a> Nylon</a><span class="contador-categorias">(4)</span></li>
+                  <li><a> Cuero</a><span class="contador-categorias">(1)</span></li>
+                  <li><a> Lona</a><span class="contador-categorias">(5)</span></li>
+                  <li><a> Poliéster</a><span class="contador-categorias">(10)</span></li>
+                </ul>
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div id="filtrosCollapse" class="col-sm-12 col-md-3  filtros-catergorias collapse d-md-block">
+
+
+          <div class="form-check form-switch">
+            <label class="form-check-label " for="flexSwitchCheckChecked">Envio gratis</label>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+          </div>
+          <div class="filtros-categorias-categoria">
+
+            <ul class="filtros-catergorias-listado-titulo">
+
+              <li> <a href="#"><strong> Bandolera</strong></a><span class="contador-categorias">(10)</span></li>
+
+              <ul class="listado-caracteristicas">
+                <li><a> Cuero</a><span class="contador-categorias">(3)</span> </li>
+                <li><a>Cuero sintético</a><span class="contador-categorias">(2)</span></li>
+                <li><a> Lona</a><span class="contador-categorias">(4)</span></li>
+                <li><a> Tela acolchada</a><span class="contador-categorias">(1)</span></li>
+              </ul>
+
+              <li><a href="#"><strong> Sobre </strong></a><span class="contador-categorias">(30)</span></li>
+              <ul class="listado-caracteristicas">
+                <li><a> Satén</a><span class="contador-categorias">(12)</span></li>
+                <li><a> Cuero</a><span class="contador-categorias">(5)</span></li>
+                <li><a> Terciopelo</a><span class="contador-categorias">(10)</span></li>
+                <li><a> Acrílico </a><span class="contador-categorias">(2)</span></li>
+                <li><a> Metal</a><span class="contador-categorias">(1)</span></li>
+              </ul>
+
+
+              <li><a href="#"><strong> Riñonera</strong></a> <span class="contador-categorias">(15)</span></li>
+              <ul class="listado-caracteristicas">
+                <li><a>Nylon</a><span class="contador-categorias">(10)</span></li>
+                <li><a> Cuero</a> <span class="contador-categorias">(2) </span></li>
+                <li><a> Lona</a> <span class="contador-categorias"> (3)</span></li>
+                <li><a>Poliéster impermeable</a><span class="contador-categorias">(5)</span></li>
+              </ul>
+
+              <li><a href="#"><strong> Mochila</strong></a><span class="contador-categorias">(25)</span></li>
+              <ul class="listado-caracteristicas">
+                <li><a> Nylon</a><span class="contador-categorias">(4)</span></li>
+                <li><a> Cuero</a><span class="contador-categorias">(1)</span></li>
+                <li><a> Lona</a><span class="contador-categorias">(5)</span></li>
+                <li><a> Poliéster</a><span class="contador-categorias">(10)</span></li>
+              </ul>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-9  visualizacionResultados">
+          <div class="container">
+            <div class="row">
+
+
+              <!--------------------------------------->
+              <!-- INICIO DE : Slide de Marcas       -->
+              <!--------------------------------------->
+              <section class="searchResult-container-slideMarcas">
+                <div id="carouselExampleControlsNoTouching" class="carousel slide">
+
+                  <div class="carousel-inner carousel-inner-marcas">
+
+
+                    <div class="carousel-item active">
+                      <div class="card-container">
+                        <div class="card tarjetaMarcas"><img src="/assets/bandoleras.jpg"
+                            class="img-fluid rounded-circle">
+                          <h5>Marca 1</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/billetera.jpeg"
+                            class="img-fluid rounded-circle">
+                          <h5>Marca 2</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide4.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 3</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 4</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 5</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 6</h5>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="carousel-item">
+                      <div class="card-container">
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 7</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 8</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 9</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 10</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 11</h5>
+                        </div>
+                        <div class="card tarjetaMarcas"><img src="/assets/slide3.jpg" class="img-fluid rounded-circle">
+                          <h5>Marca 12</h5>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <button class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button"
+                    data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </section>
+
+
+
+              <!---------------Tarjeta 1------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor">
+                <div class="card mb-4 tarjeta d-flex flex-column h-100">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                  </div>
+                </div>
+              </div>
+              <!---------------Tarjeta 2------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor">
+                <div class="card mb-4 tarjeta d-flex flex-column  h-100">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                    <span class="card-span">15% OFF</span>
+                  </div>
+                </div>
+              </div>
+              <!---------------Tarjeta 3------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor">
+                <div class="card mb-4 tarjeta d-flex flex-column h-100 ">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                  </div>
+                </div>
+              </div>
+
+              <!---------------Tarjeta 4------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor">
+                <div class="card mb-4 tarjeta d-flex flex-column h-100">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                    <span class="card-span">25% OFF</span>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <!---------------Tarjeta 5------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor">
+                <div class="card mb-4 tarjeta d-flex flex-column h-100">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                  </div>
+                </div>
+              </div>
+
+
+              <!---------------Tarjeta 6------------->
+              <div class="col-lg-4 col-md-6 col-sm-12 card-contenedor ">
+                <div class="card mb-4 tarjeta d-flex flex-column h-100">
+                  <a> <img src="./assets/slide1.jpg" class="card-img-top " alt="..."></a>
+                  <div class="card-body">
+                    <a href="#">
+                      <h5 class="card-title ">Producto 1</h5>
+                    </a>
+                    <p class="precio">$ 300</p>
+                    <p class="card-text">6 cuotas sin interés</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <!-- paginacion-->
+          <nav aria-label="...">
+            <ul class="pagination pagination-md justify-content-center">
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">1</span>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">6</a></li>
+
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------------->
+  <!-- INICIO DE : Productos relacionados-->
+  <!--------------------------------------->
+  <section class="search-container-productosRelacionado">
+    <h4 class="text-center">Productos relacionados</h4>
+  
+    <div id="carouselExampleControls" class="carousel " >
+      <div class="carousel-inner carousel-inner-productoR">
+        <div class="carousel-item carousel-item-productoR active">
+          <div class="card card-productoR"> <div class="imagge-grapper">
+            <img src="/assets/slide1.jpg" class="d-block w-100" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Producto relacionado</h5>
+              <p class="precio">$300</p>
+              <p class="card-text">6 cuotas sin interes</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-productoR ">
+          <div class="card card-productoR"> <div class="imagge-grapper">
+            <img src="/assets/slide2.jpg" class="d-block w-100" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Producto relacionado</h5>
+              <p class="precio">$300</p>
+  
+              <p class="card-text">6 cuotas sin interes</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-productoR ">
+          <div class="card card-productoR"> <div class="imagge-grapper">
+            <img src="/assets/slide3.jpg" class="d-block w-100" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Producto relacionado</h5>
+              <p class="precio">$300</p>
+  
+              <p class="card-text">6 cuotas sin interes</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-productoR ">
+          <div class="card card-productoR"> <div class="imagge-grapper">
+            <img src="/assets/slide4.jpg" class="d-block w-100" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Producto relacionado</h5>
+              <p class="precio">$300</p>
+  
+              <p class="card-text">6 cuotas sin interes</p>
+              <span class="card-span">25% OFF</span>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item carousel-item-productoR">
+          <div class="card card-productoR"> <div class="imagge-grapper">
+            <img src="/assets/viaje.png" class="d-block w-100" alt="..."></div>
+            <div class="card-body">
+              <h5 class="card-title">Producto relacionado</h5>
+              <p class="precio">$300</p>
+  
+              <p class="card-text">6 cuotas sin interes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev prev-productoR" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next next-productoR" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+  </section>
+
+  <!----------------------------------------------->
+  <!-------------NESLETTER------------------------->
+  <!----------------------------------------------->
+  <section class="newsletter">
+    <div class="container">
+      <div class="row">
+        <h4 class="title">Newsletter</h4>
+        <div class="input-group mb-3">
+
+          <input type="text" class="form-control" placeholder="Dejanos tu email" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <button class="btn color-acentuacion input-group-text" id="basic-addon2">Suscribirse</button>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <!---------------------------->
+  <!--Incio seccion pie de pagina-->
+  <!---------------------------->
+  <section class="contenedor ">
+    <div class="container">
+      <div class="row">
+
+        <!---------------------Columna 1 ------------->
+        <div class="col-lg-6 col-sm-12 contenedor-footer">
+
+          <h4>Medios de pago</h4>
+          <div class="contenedor-mediosPago d-flex justify-content-lg-start">
+            <i class="fa-brands fa-cc-visa icono" aria-hidden="true"></i>
+            <i class="fa-brands fa-cc-mastercard icono" aria-hidden="true"></i>
+            <i class="fa-solid fa-building-columns icono"></i>
+          </div>
+          <h4>Medios de envío</h4>
+          <i class="fa-solid fa-truck icono"></i>
+        </div>
+
+        <!---------------------Columna 2 ------------->
+
+        <div class="col-lg-6 col-sm-12 contenedor-footer">
+
+          <h4>Nuestras redes sociales</h4>
+          <div class="contenedor-mediosPago d-flex">
+            <i class="fa-brands fa-facebook icono"></i>
+            <i class="fa-brands fa-instagram icono" aria-hidden="true"></i>
+          </div>
+
+          <h4>Contacto</h4>
+          <div class="contacto-footer-icono"><i
+              class="fa-solid fa-envelope icono d-flex align-items-center"><span>e_mail@gmail.com </span></i></div>
+          <div class="contacto-footer-icono"><i
+              class="fa-solid fa-phone icono d-flex align-items-center"><span>+54113464930 </span></i></div>
+          <div class="contacto-footer-icono"><a>Botón de arrepentimiento</a></div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+
+  </section>
+  <!--  jquerys cdn-->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!--Script con Javascript-->
+  <script src="/scripts/searchpage.js"></script>
+  
+
+
+  <!-- script de bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

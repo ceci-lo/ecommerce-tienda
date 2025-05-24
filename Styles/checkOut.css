@@ -1,0 +1,373 @@
+:root {
+    --color-light-pink: hsl(350°, 100%, 92%);
+    --color-acento: #D8A7B1;
+  }
+  
+
+/* primer Container  de Formularios */
+.checkOut_Fomularios{
+    padding: 20px 60px;
+}
+/*Diseño del logo para colocar imagen */
+.checkOut_Fomularios_LogoContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  
+}
+
+.checkOut_Fomularios_LogoContainer img {
+    max-height: 100px;
+    width: 40vh;
+    margin: auto;
+    object-fit: cover;
+}
+
+
+/*solapas de envio y pago*/
+.btnTabs{
+    display: flex;
+    border-bottom: 1px solid #c4c4c4;
+    margin-top: 25px;
+}
+.btnTabs_btn{
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 64px;
+    padding: 0px;
+    outline: none;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    -webkit-appearance: none;
+    border-top: 0px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 1px solid transparent;
+    background-color: #fff;
+    text-align: center;
+    color: #d4d9dd;
+    font-size: .875rem;
+}
+
+.btnTabs .active{   
+     color: #333;
+    border-bottom: 1px solid #333;
+}
+
+/*Solapa 1 de formulario envio */
+.envioContacto{
+    margin-top: 40px;
+}
+.envioContainer{
+    margin-top: 40px;
+}
+
+#otpContainer input{
+    width:18%;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+#otpContainer{
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+#formulario-otp{
+    display: none;
+}
+.link {
+    font-size: 14px;
+    color:var(--color-acento) !important;
+}
+.container--formulario{
+    display: block;
+    margin-bottom: 25px;
+}
+.titulo--formulario{
+    display: flex;
+    justify-content: flex-start;
+}
+.titulo--formulario p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    text-transform: uppercase;
+}
+.formularioEmail{
+    display: block;
+    text-align: start;
+}
+#emailHelp p{
+    font-size: .75rem;
+    font-weight: normal;
+    color: #333;
+}
+#emailHelp a {
+    text-decoration: underline;
+    font-weight: bolder;
+
+    
+}
+.label--formulario{
+    font-size: .75rem;
+    color: #666;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-family: "Roboto", sans-serif;
+}
+#formularioEmail input{
+    padding: 10px 0;
+}
+.checkboxNovedades{
+display: flex;
+font-family: "Roboto", sans-serif;
+font-size: 1.0625rem;
+font-weight: normal;
+color: #666;
+user-select: none;
+}
+.containerFormularioDeEnvio{
+    font-family: "Roboto", sans-serif;
+     padding:0 50px;
+}
+.card--formulario--metodoEnvio{
+    background-color: #fbfbfb;
+    padding: 11px 0;
+    margin: 10px 0;
+}
+.titulo--formulario-metodo{
+    display: flex;
+    justify-content: space-between;
+}
+.btn--sin-fondo{
+    background-color: #fff;
+    border-color: #333;
+    border-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border: 1.5px solid #333;
+    padding: 0px 5.5px;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+/*cambio de CP*/
+.calcularEnvioContainer{
+display: none;
+}
+.listado--MetodoEnvio p{
+    font-size: .8rem;
+}
+
+/*DATOS DEL DESTINATARIO*/
+.botonera {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-right: 11px;
+    align-items: center;
+}
+
+/*setteo de containers*/
+.envioContainer{
+    display: block;
+}
+.pagoContainer{
+    display:none;
+}
+.cambiar--datos--formulario{
+    display: none;
+}
+.mensaje-PagoRealizado{
+    display: none;
+}
+
+/*PAGO*/
+.titulo--formulario > .normal {
+    text-transform: none;
+}
+.img--payments{
+    display: flex;
+        height: 18px;
+        width: .7rem;
+        object-fit: contain;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+}
+
+.calculoEnvio-colapsado-detalle span, .calculoEnvio-colapsado-detalle span{
+    display: flex;
+}
+.payment-options{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+}
+.img-grande{
+    max-width: 59px !important;
+    max-height: 59px !important;
+}
+.leyendaTransferencia{
+    font-size: .8rem ;
+    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
+}
+.container--metodo--pago{
+    margin-bottom: 35px;
+}
+.noRoundBorder{
+   border-radius: 0px !important;
+}
+.span-arrow{
+    font-size: 26px;
+    margin-right: 10px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+}
+
+.card-body{
+    padding-top: 25px !important;
+}
+.form-control p, .collapseCuotas ul {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.selection {
+    font-size: 0.8rem !important;
+    color: #888;
+}
+
+.collapseCuotas  ul{
+    list-style: none;
+    font-size: 0.8rem;
+
+}
+.collapseMercadoPago {
+    font-family: 'roboto', sans-serif;
+    font-size: 0.9rem !important;
+
+}
+
+.info-MercadoPago{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 0.8rem !important;
+}
+.info-MercadoPago .subtext{
+    color: #888 !important;
+    padding-left: 8px;
+}
+#mostrarTodos{
+    display: none;
+}
+/*Card de pago exitoso y no exitoso*/
+.bi-check-circle{
+    color: green;
+    font-size: 50px;
+}
+.bi-exclamation-circle{
+ color: red;
+font-size: 50px;
+}
+.card-alineacion-centro{
+    font-family: 'roboto', sans-serif !important;
+    justify-content: center;
+    margin: 45px 0;
+    
+}
+.center{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spaceBetween{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Resumen de compra*/
+.checkOut_ResumenCompra{
+    padding: 30px 40px 20px 40px;
+        background-color: #fbfbfb;
+        min-height: 100vh;
+}
+.badgeColor{
+    color: black;
+    background: var(--bs-danger-border-subtle);
+    padding: 8px 10px;
+  
+}
+.texto-simple{
+  font-weight: 100 !important; 
+    font-size: 13px !important;
+    color: #888  !important;
+}
+.divisor{
+    border-bottom: 1px solid var(--bs-border-color);
+}
+.fondo {
+   background-color: #fbfbfb;
+}
+
+@media screen and (max-width: 768px) {
+    .checkOut_Fomularios {
+        padding: 20px 10px;
+    }
+
+    .checkOut_Fomularios_LogoContainer img {
+        max-height: 80px;
+        width: 30vh;
+    }
+
+    .btnTabs_btn {
+        font-size: .7rem;
+    }
+
+    .titulo--formulario p {
+        font-size: 1rem;
+    }
+
+    .titulo--formulario>.normal {
+        font-size: 1rem;
+    }
+
+    .leyendaTransferencia {
+        font-size: .7rem;
+    }
+    .botonera{
+        font-size: .9rem !important;
+    }
+    .containerFormularioDeEnvio {
+        padding: 9px;
+    }
+    #otpContainer input{
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 3px;
+}
+
+}

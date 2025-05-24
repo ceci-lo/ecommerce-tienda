@@ -1,0 +1,294 @@
+:root {
+    --color-secundario: #423439;
+    --color-primario: #333333;
+    --color-texto-banner: rgb(227, 226, 222);
+    --color-acento: hsl(348, 39%, 75%);
+    --color-grey: rgb(180, 179, 181);
+}
+
+.titleResultP {
+    text-align: end;
+}
+
+/*ordenar Por*/
+.ordenarPor {
+    margin-top: 34px;
+}
+
+/*Carusel de marcas*/
+.searchResult-container-filtros {
+    padding: 15px;
+}
+
+.tarjetaMarcas {
+    width: calc(100% / 6);
+    padding: 10px;
+    text-align: center;
+    border: none;
+   
+}
+
+.tarjetaMarcas:first-child {
+    margin-left: 10px
+}
+.tarjetaMarcas img{
+    aspect-ratio: 1 / 1;
+    width: 150px;
+    object-fit: cover;
+}
+.tarjetaMarcas h5 {
+    padding: 5px;
+    text-align: center;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-left: 23px;
+}
+
+.carousel-inner-marcas {
+    display: flex;
+
+}
+
+.card-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.carousel-inner-marcas img {
+    /*height: 100px;*/
+    width: auto;
+    border-radius: 50%;
+}
+
+.carusel-item-marcas {
+    display: block;
+    flex: 0 0 calc(100%/6);
+}
+
+/*Filtros y visualizacion*/
+/*columna de filtros*/
+.searchResult-container-filtroYvisualizacion {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.form-switch {
+    margin: 15px 0px 15px;
+
+}
+
+.filtros-catergorias li {
+    list-style-type: none
+}
+
+.visualizacionResultados .container {
+    margin-top: 15px;
+}
+
+.active>.page-link {
+    background-color: var(--color-acento);
+}
+
+.page-link {
+    color: var(--color-secundario);
+
+}
+
+.filtros-categorias-categoria li {
+    display: flex;
+}
+
+.contador-categorias {
+    margin-left: 5px;
+    font-size: 14px;
+    color: darkgrey;
+}
+
+.listado-caracteristicas {
+    margin-bottom: 10px;
+}
+
+.listado-caracteristicas li {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/*Productos relacionados*/
+.search-container-productosRelacionado{
+    position: relative;
+  }
+.carousel-inner-productoR{
+    padding: 1em;
+    
+}
+  .card-productoR{
+    margin: 0 .5em;
+    height: 370px;
+}
+.prev-productoR, .next-productoR{
+    background-color: #e1e1e1 !important;
+    width: 7vh !important;
+    height: 7vh !important;
+    border-radius: 50% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+.card-productoR .imagge-grapper {
+  max-width: 100%;
+  height: 13em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagge-grapper img{
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.cards-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.precio {
+    font-size: 1.3rem !important;
+    margin-bottom: 9px !important;
+}
+
+.card-text {
+    margin-bottom: 5px !important;
+    color: #00a650;
+
+}
+
+.card-span {
+    background-color: #3483fa;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 8px;
+}
+
+.card-contenedor {
+    max-height: 455px;
+    margin-bottom: 15px;
+}
+
+
+
+
+/*Paginacion*/
+.page-link {
+    border: none !important;
+}
+
+.page-link:hover {
+    color: var(--color-secundario);
+    background-color: var(--color-grey);
+}
+
+/*Querys*/
+
+@media screen and (min-width:568px)  {
+    
+    .card-wappers{
+        display: flex;
+    }
+  
+}
+@media screen and (max-width: 767px) {
+
+    /*hasta 767*/
+    .titleResultP {
+        text-align: left;
+        font-size: 15.4px;
+    }
+
+    .tarjetaMarcas {
+        width: 50%;
+        flex: 0 0 25% !important;
+        margin-right: 25px;
+    }
+   
+
+    .filtros-categorias-categoria {
+        display: row;
+        text-align: center;
+    }
+
+    .filtros-categorias-categoria ul {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .btn-filtros {
+        margin-left: 17px;
+    }
+
+    .btn-filtros:hover {
+        background-color: var(--color-texto-banner);
+        color: var(--color-secundario);
+        border: solid 1px var(--color-secundario);
+    }
+
+    /*Productos relacionados*/
+    
+   
+  
+}
+@media (min-width: 768px) {
+    .carousel-inner-productoR {
+      display: flex !important;
+    }
+    .carousel-item-productoR {
+      margin-right: 0 !important;
+      flex: 0 0 33.333333% !important;
+      display: block !important;
+    }
+}
+@media screen and (max-width: 991px) {
+
+    .tarjetaMarcas {
+        width: 50%;
+        flex: 0 0 25% !important;
+        margin-right: 25px;
+    }
+
+    .tarjetaMarcas h5 {
+        width: 50px;
+        display: flex;
+        font-size: 10px !important;
+        margin-left: 20px !important;
+    }
+ 
+}
+
+
+@media screen and (max-width:1999px) {
+    .tarjetaMarcas h5 {
+        width: 50px;
+        font-size: 10px;
+        margin-left: 20px;
+        margin-top: 5px;
+    } 
+   
+}
+
+@media screen and (min-width: 1200px) {
+  
+    .tarjetaMarcas h5 {
+        margin-left: 35px;
+    }
+    
+}
+
+/*1400 px ver que se mueve el slide de marcas*/

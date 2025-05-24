@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product detail page</title>
+
+    <!--Links para que se visualicen los iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Links de bootstrap-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!--Links de css-->
+    <link rel="stylesheet" href="/Styles/style.css">
+    <link rel="stylesheet" href="/Styles/searchResult.css">
+    <link rel="stylesheet" href="/Styles/productDetailPage.css">
+</head>
+
+<body>
+    <section class="ofertaBanner text-center">
+        3 y 6 cuotas sin interés
+    </section>
+    <!--Barra de navegacion-->
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container" id="container-nav">
+            <div class="container colapsar d-flex align-items-lg-center" id="colapsar">
+                <div class="logo"> <a class="navbar-brand me-auto" href="#">Logo</a></div>
+                <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasUno"
+                    aria-labelledby="offcanvasUnoLabel">
+                    <div class="offcanvas-header border-bottom border-danger-subtle">
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body d-flex justify-content-lg-end justify-content-sm-center">
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item  ">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Productos
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Producto 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Producto 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Producto 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Nosotros</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="ms-auto d-flex">
+                    <ul class="navbar-nav iconos-nav">
+                        <li class="nav-item search-container me-3" id="searchButton">
+                            <i class="fa fa-search icono" aria-hidden="true"></i>
+                        </li>
+                        <li class="nav-item"><i class="fa-solid fa-user icono"></i></li>
+                        <li class="nav-item  position-relative"><i class="fas fa-cart-arrow-down icono" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasDos" aria-controls="offcanvasNavbar"
+                                aria-label="Toggle navigation"> <span class="position-absolute top-0 start-100 posicionBadgeContador badge rounded-pill bg-danger" id="contadorCarritoIcono">
+                                    0                                    
+                                  </span></i></li>
+                    </ul>
+                    <button class="navbar-toggler colapso-nav" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasUno" aria-controls="offcanvasNavbar" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!--input del search-->
+            <div class="search-container" id="searchBox">
+                <form>
+                    <input class="search" id="searchInput" type="text" placeholder="Buscar..." aria-hidden="false">
+                    <button type="button" class="btn-close" id="closeBtn" aria-label="Close"></button>
+                </form>
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!------------------------>
+    <!--offcanvas de carrito-->
+    <!------------------------>
+
+    <div class="container-fluid">
+        <div class="offcanvas offcanvas-end offcanvasDosContainer" tabindex="-1" id="offcanvasDos" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header offcanvasDos-header">
+                <h5 class=" offcanvasDos-title" id="offcanvasNavbarLabel">Mi carrito</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+            <!-----------Si carrito esta vacio ------------->
+                <div class="offcanvasDos-noProducts">
+                    <p class="offcanvasDos-title-p">El carrito de compras está vacio</p>
+                    <a href="./productDetailPage.html" class="offcanvasDos-a">Volver a la tienda</a>
+                </div>
+
+                <!--Si el carrito tiene productos-->
+                <div  class="offcanvasDos-conproductos">
+                <div class="offcanvasDos-product-list" id="offcanvasDos-product-list">
+                    <!--Aqui se visualizan los productos agregados al carrito-->
+
+                </div>
+                <div class="offcanvasDos-subtotal">
+                    <p class="offcanvasDos-title-productos">Subtotal</p>
+                    <p class="Subtotal"> </p>
+                </div>
+                <div class="offcanvasDos-calcular-envio">
+                    <div class="offcanvasDos-contenedor-boton" id="botonContendor1"  data-bs-toggle="collapse" href="#collapseEnvio" role="button" aria-expanded="false" aria-controls="collapseEnvio">
+                    <p class="offcanvasDos-title-productos">Calcular envio</p>
+                    <div><i class="bi bi-arrow-down-short" data-target="#collapseEnvio"></i></div>
+                    </div> 
+
+                    <!--Listado de metodos de envio-->
+                    <div class="collapse" id="collapseEnvio">
+                    <div class="card-body">
+                        <div class="containerinputcalculoenvio" id="containerinputcalculoenvio">
+                        <div class="alert alert-light" role="alert">
+                            <i class="bi bi-info-circle"></i> <p> Envios a todo el pais</p>
+                          </div>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text"  aria-label="Recipient's username"
+                                placeholder="Código postal" aria-describedby="button-addon2calculoEnvio">
+                            <p class="d-inline-flex gap-1 btn-calculoEnvio">
+                                <button class="btn color-acentuacion" type="button" id="button-addon2calculoEnvio"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">Calcular</button>
+                            </p>
+
+                        </div>
+                    </div>
+                        <div class="offcanvasDos-envio-domicilio" id="offcanvasDos-envio-domicilio">
+                            <div class="offcanvasDos-cambiar-metodo-Envio">
+                                <div class="offcanvas-titlecp">
+                                <p class="metodo-envio-title">Método de envío</p>
+                                <p class="metodo-envio-cp">CP </p>
+                               </div>
+                                <div class="metodo-envio-cambiar-link" id="metodo-envio-cambiar-link">
+                                    <a > Cambiar método de envío</a>
+                                </div>
+                            </div>
+                            
+                            <div class="card card-body card-container-diferentesFormasEnvio">
+
+                                <p class="calculoEnvio-colapsado-p">Envio a domicilio</p>
+                                <div class="card">
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/oca-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> Envio a domicilio OCA</p>
+                                            <span>$7.012,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <p class="calculoEnvio-colapsado-p">Envio a sucursal del correo</p>
+                                <div class="card">
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/oca-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> Envio a sucursal OCA</p>
+                                            <span>$4.701,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="calculoEnvio-colapsado-p">Otros medios de envio</p>
+                                <div class="card">
+
+
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/custom-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> PUNTO DE RETIRO CABA-PALERMO
+                                            </p>
+                                            <p class="calculoEnvio-p-text">Una vez realizada la compra, por favor
+                                                coordinar con nuestro encargado de deposito, Valetin, para la entrega
+                                                del pedido realizado. Desde ya muchas gracias.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="offcanvasDos-total">
+                                <p class="offcanvasDos-title-productos">Envio</p>
+                                <span class="precioEnvio">0</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="offcanvasDos-codigo-descuento">
+                    <div class="offcanvasDos-contenedor-boton" id="botonContendor2" data-bs-toggle="collapse" href="#collapseDescuento" role="button" aria-expanded="false" aria-controls="collapseDescuento">
+                    <p class="offcanvasDos-title-productos">¿Tenés un descuento?</p>
+                    <div><i class="bi bi-arrow-down-short"></i></div>
+                     </div>
+                     <div class="collapse" id="collapseDescuento">
+                    <div class="card-body">
+                     
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-label="Recipient's username"
+                                placeholder="Código" aria-describedby="button-addon2Descuento">
+                            <p class="d-inline-flex gap-1 btn-calculoEnvio">
+                                <button class="btn color-acentuacion" type="button" id="button-addon2Descuento"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false"
+                                    aria-controls="collapseExample">Aplicar</button>
+                            </p>
+
+                        </div>
+                     
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="offcanvasDos-total">
+                    <p class="offcanvasDos-title-productos">Total</p>
+                    <span class="precioEnvio total">$0,00</span>
+                </div>
+                <div class="offcanvasDos-iniciarCompraBtn">
+                    <button class="btn color-acentuacion btn-iniciarCompra">Iniciar compra</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--------------------------------------->
+    <!-- INICIO DE : Producto ---------------->
+    <!--------------------------------------->
+    <section class="productDetail">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 slide-img-productoDetail">
+                            <div id="carouselExampleControls" class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item carusel-item-productDetail active">
+                                        <img src="/assets/carteraProducto1.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item  carusel-item-productDetail">
+                                        <img src="/assets/carteraProducto1.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item carusel-item-productDetail">
+                                        <img src="/assets/carteraProducto2.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item carusel-item-productDetail">
+                                        <img src="/assets/carteraProducto3.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item carusel-item-productDetail">
+                                        <img src="/assets/carteraProducto4.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!--Carousel imagenes en chicas 4 por slide-->
+                        <div class="col-sm-12  col-md-12  contenedor-CaruselVertical">
+                            <div id="carouselExampleControlsProductoR" class="carousel">
+                                <div class="carousel-inner carousel-inner-caruselProductos carousel-inner-vartical">
+                                    <div class="carousel-item carousel-item-caruselProductos active">
+                                        <div class="card card-caruselProducto  card-carousel-vertical">
+                                            <div class="imagge-grapper">
+                                                <img src="/assets/carteraProducto1.jpg" class="d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item carousel-item-caruselProductos ">
+                                        <div class="card card-caruselProducto  card-carousel-vertical">
+                                            <div class="imagge-grapper">
+                                                <img src="/assets/carteraProducto2.jpg" class="d-block w-100" alt="...">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item carousel-item-caruselProductos ">
+                                        <div class="card card-caruselProducto  card-carousel-vertical">
+                                            <div class="imagge-grapper">
+                                                <img src="/assets/carteraProducto3.jpg" class="d-block w-100" alt="...">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item carousel-item-caruselProductos ">
+                                        <div class="card card-caruselProducto  card-carousel-vertical">
+                                            <div class="imagge-grapper">
+                                                <img src="/assets/carteraProducto4.jpg" class="d-block w-100" alt="...">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item carousel-item-caruselProductos">
+                                        <div class="card card-caruselProducto  card-carousel-vertical">
+                                            <div class="imagge-grapper">
+                                                <img src="/assets/carteraProducto1.jpg" class="d-block w-100" alt="...">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev carousel-control-prev-productR" type="button"
+                                    data-bs-target="#carouselExampleControlsProductoR" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next  carousel-control-next-productR" type="button"
+                                    data-bs-target="#carouselExampleControlsProductoR" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-12 d-none d-md-block formaDeUso-slide">
+                            <div class="formaDeUso-slide-img">
+                                <p class="formaDeUso-Descripcion">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit.
+                                    Autem, ea magni! Obcaecati quod alias corporis ipsam, officiis maxime repudiandae
+                                    voluptas beatae? Quae, placeat velit ducimus numquam commodi iure ipsam consectetur.
+                                </p>
+                                <!--Card explicativo de uso con imagen a la izquierda y texto -->
+                                <div class="card mb-3 card-formaDeUso">
+                                    <div class="row g-0 container-card-formaDeUso">
+                                        <div class="col-md-6">
+                                            <img src="/assets/viaje.png" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card-body texto-derecha">
+                                                <p class="texto">This is a wider card with supporting text below as a
+                                                    natural lead-in to additional content. This content is a little bit
+                                                    longer.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Card explicativo de uso con imagen a la derecha y texto -->
+                                <div class="card mb-3 card-formaDeUso">
+                                    <div class="row g-0 container-card-formaDeUso">
+
+                                        <div class="col-md-6">
+                                            <div class="card-body">
+                                                <p class="texto">This is a wider card with supporting text below as a
+                                                    natural lead-in to additional content. This content is a little bit
+                                                    longer.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <img src="/assets/slide2.avif" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Seccion de titulo y botones de compra-->
+                <div class="col-sm-12 col-md-4 detail-productDetail">
+                    <h1 id="productTitle">Titulo producto</h1>
+                    <div class="precioYdescuentos">
+                        <p class="precioP" id="precioP">$700,00</p><span class="precioSinDescuento">$900,00</span><span
+                            class="etiquetaDescuento"> 12% OFF </span>
+                    </div>
+                    <p>
+                        <i class="fa-regular fa-credit-card color-acentuacion"></i>
+                        <strong>3</strong> cuotas sin interes de <strong>$233,33</strong>
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-money-bill color-acentuacion"></i>
+                        <strong>20%</strong> de descuento pagando por transferencia bancaria
+                    </p>
+                    <div class="contadorProductos-productDetail">
+                        <p><strong>Talle</strong></p>
+                        <div>
+                            <button class="badge badgeTalle text-bg-dark">1</button>
+                            <button class="badge badgeTalle">2</button>
+                            <button class="badge badgeTalle">3</button>
+                        </div>
+                    </div>
+                    <div class="contadorProductos-productDetail">
+                        <p><strong>Cantidad</strong></p>
+
+                        <div id="botonera-cantidad-productDetail" class="botonera-cantidad-productDetail">
+                            <button class="btn btnMinusCantidad">-</button>
+                            <span id="valueCantidad" value="0"> 0 </span>
+                            <button class="btn btnMoreCantidad">+</button>
+                        </div>
+
+                    </div>
+                    <div class="botonera-productDetail">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-addToCart-productDetail" id="btn-addToCart-productDetail" type="button">Agregar al carrito</button>
+                            <button class="btn color-acentuacion btn-buyNow-productDetail" id="btn-buyNow-productDetail" type="button">Comprar
+                                ahora</button>
+                        </div>
+                    </div>
+                    <div class="evios-productDetail">
+
+                        <p> <i class="fa-solid fa-truck "></i>
+
+                            Calcula el costo de envio</p>
+                    </div>
+                    <div class="envio-productDetail">
+                        <div class="input-group mb-3 calcularEnvioContainer">
+                            <input type="text" class="form-control" aria-label="Recipient's username"
+                                placeholder="Código postal" aria-describedby="button-addon2">
+                            <p class="d-inline-flex gap-1 btn-calculoEnvio">
+                                <button class="btn color-acentuacion" type="button" id="button-addon2 "
+                                    data-bs-toggle="collapse" data-bs-target="#envioPaginaProductDetail" aria-expanded="false"
+                                    aria-controls="envioPaginaProductDetail">Calcular</button>
+                            </p>
+
+                        </div>
+                        <div class="collapse" id="envioPaginaProductDetail">
+                            <div class="card card-body card-container-diferentesFormasEnvio">
+
+                                <p class="calculoEnvio-colapsado-p">Envio a domicilio</p>
+                                <div class="card">
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/oca-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> Envio a domicilio OCA</p>
+                                            <span>$7.012,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="calculoEnvio-colapsado-p">Envio a sucursal del correo</p>
+                                <div class="card">
+
+
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/oca-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> Envio a sucursal OCA</p>
+                                            <span>$4.701,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="calculoEnvio-colapsado-p">Otros medios de envio</p>
+                                <div class="card">
+
+
+                                    <div class="calculoEnvio-colapsado-container">
+                                        <div class="calculoEnvio-colapsado-icono">
+                                            <img src="/assets/custom-shipment-icon.png" alt="">
+                                        </div>
+                                        <div class="calculoEnvio-colapsado-detalle">
+                                            <p class="calculoEnvio-colapsado-p-innerTitle"> PUNTO DE RETIRO CABA-PALERMO
+                                            </p>
+                                            <p class="calculoEnvio-p-text">Una vez realizada la compra, por favor
+                                                coordinar con nuestro encargado de deposito, Valetin, para la entrega
+                                                del pedido realizado. Desde ya muchas gracias.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Se muestra en pantalla chica debajo de titulo y botones de comprar y agregar a carrito-->
+                <div class="d-sm-block d-md-none d-lg-none formaDeUso-slide">
+                    <div class="formaDeUso-slide-img">
+                        <p class="formaDeUso-Descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Autem, ea magni! Obcaecati quod alias corporis ipsam, officiis maxime repudiandae voluptas
+                            beatae? Quae, placeat velit ducimus numquam commodi iure ipsam consectetur.</p>
+
+                        <!--Card explicativo de uso con imagen a la izquierda y texto -->
+                        <div class="card mb-3 card-formaDeUso">
+                            <div class="row g-0 container-card-formaDeUso">
+                                <div class="col-md-6">
+                                    <img src="/assets/viaje.png" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body card-explicacion-uso">
+                                        <p class="texto">This is a wider card with supporting text below as a natural
+                                            lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Card explicativo de uso con imagen a la derecha y texto -->
+                        <div class="card mb-3 card-formaDeUso">
+                            <div class="row g-0 container-card-formaDeUso">
+
+                                <div class="col-md-6">
+                                    <div class="card-body card-explicacion-uso">
+                                        <p class="texto">This is a wider card with supporting text below as a natural
+                                            lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <img src="/assets/slide2.avif" class="img-fluid rounded-start" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--------------------------------------->
+    <!-- INICIO DE : Productos relacionados-->
+    <!--------------------------------------->
+    <section id="wrapperRelacionados" class="search-container-productosRelacionado">
+        <h4 class="text-center">Productos relacionados</h4>
+
+        <div id="carouselExampleControlsProductoRelacionado" class="carousel ">
+            <div class="carousel-inner carousel-inner-productoR">
+                <div class="carousel-item carousel-item-productoR active">
+                    <div class="card card-productoR">
+                        <div class="imagge-grapper">
+                            <img src="/assets/slide1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Producto relacionado</h5>
+                            <p class="precio">$300</p>
+                            <p class="card-text">6 cuotas sin interes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-productoR ">
+                    <div class="card card-productoR">
+                        <div class="imagge-grapper">
+                            <img src="/assets/slide2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Producto relacionado</h5>
+                            <p class="precio">$300</p>
+
+                            <p class="card-text">6 cuotas sin interes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-productoR ">
+                    <div class="card card-productoR">
+                        <div class="imagge-grapper">
+                            <img src="/assets/slide3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Producto relacionado</h5>
+                            <p class="precio">$300</p>
+
+                            <p class="card-text">6 cuotas sin interes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-productoR ">
+                    <div class="card card-productoR">
+                        <div class="imagge-grapper">
+                            <img src="/assets/slide4.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Producto relacionado</h5>
+                            <p class="precio">$300</p>
+
+                            <p class="card-text">6 cuotas sin interes</p>
+                            <span class="card-span">25% OFF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item carousel-item-productoR">
+                    <div class="card card-productoR">
+                        <div class="imagge-grapper">
+                            <img src="/assets/viaje.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Producto relacionado</h5>
+                            <p class="precio">$300</p>
+
+                            <p class="card-text">6 cuotas sin interes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev prev-productoR" type="button"
+                data-bs-target="#carouselExampleControlsProductoRelacionado" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next next-productoR" type="button"
+                data-bs-target="#carouselExampleControlsProductoRelacionado" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+    </section>
+
+    <!--------------------------------------->
+    <!-- INICIO DE : Producto ---------------->
+    <!--------------------------------------->
+    <section class="comentarios">
+        <div class="container">
+            <div class="row">
+                <h1 class="title">Reseñas</h1>
+                <div class="col-sm-12 col-md-6">
+
+                    <!---Tarjeta 1----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Rosalia</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+
+                    <!---Tarjeta 2----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Marcelo</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+
+                    <!---Tarjeta 3----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Gabriel</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <!---Tarjeta 1----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Wilson</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+
+                    <!---Tarjeta 2----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Federico</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+
+                    <!---Tarjeta 3----------------->
+                    <div class="card card-comentarios">
+                        <div class="card-body">
+                            <h5 class="card-title">Ana</h5>
+                            <div class="ranking">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <p class="texto"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                With supporting text below as a natural lead-in to additional content.<i
+                                    class="fa fa-quote-right" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---------------------------->
+    <!--Incio seccion pie de pagina-->
+    <!---------------------------->
+    <section class="contenedor">
+        <div class="container">
+            <div class="row">
+
+                <!---------------------Columna 1 ------------->
+                <div class="col-lg-6 col-sm-12 contenedor-footer">
+
+                    <h4>Medios de pago</h4>
+                    <div class="contenedor-mediosPago d-flex justify-content-lg-start">
+                        <i class="fa-brands fa-cc-visa icono" aria-hidden="true"></i>
+                        <i class="fa-brands fa-cc-mastercard icono" aria-hidden="true"></i>
+                        <i class="fa-solid fa-building-columns icono"></i>
+                    </div>
+                    <h4>Medios de envío</h4>
+                    <i class="fa-solid fa-truck icono"></i>
+                </div>
+
+                <!---------------------Columna 2 ------------->
+
+                <div class="col-lg-6 col-sm-12 contenedor-footer">
+
+                    <h4>Nuestras redes sociales</h4>
+                    <div class="contenedor-mediosPago d-flex">
+                        <i class="fa-brands fa-facebook icono"></i>
+                        <i class="fa-brands fa-instagram icono" aria-hidden="true"></i>
+                    </div>
+
+                    <h4>Contacto</h4>
+                    <div class="contacto-footer-icono"><i
+                            class="fa-solid fa-envelope icono d-flex align-items-center"><span>e_mail@gmail.com
+                            </span></i></div>
+                    <div class="contacto-footer-icono"><i
+                            class="fa-solid fa-phone icono d-flex align-items-center"><span>+54113464930 </span></i>
+                    </div>
+                    <div class="contacto-footer-icono"><a>Botón de arrepentimiento</a></div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+    </section>
+
+
+    <!--  jquerys cdn-->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- hoja de javascript-->
+    <script src="/scripts/productDetailPage.js"></script>
+
+
+
+</body>
+
+</html>
