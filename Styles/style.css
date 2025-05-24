@@ -305,7 +305,7 @@ form {
 
 .descuentos {
   padding: 15px;
-  background-color: var(--color-texto-banner);
+  background-color: var(--color-secundario);
 }
 
 .descuentos p {

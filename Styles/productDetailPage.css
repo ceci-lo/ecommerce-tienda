@@ -1,6 +1,16 @@
 :root {
   --color-light-pink: hsl(350°, 100%, 92%);
 }
+:root {
+  --color-primario: #3E3E3E;
+  --color-secundario:#DCD6CC;
+  --color-acento: #88B04B;
+  --btn-hover:#6A994E;
+  --color-texto-banner: #6A994E;
+  --transition-fast: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
 
 /*seccion de Producto detalle*/
 
@@ -98,13 +108,12 @@
 
 /*botonera de agregar carrito y comprar ahora*/
 .btn-addToCart-productDetail {
-  background-color: #fce3e8;
-  color: #545253;
-
+  background-color: var(--btn-hover);
+  
 }
 
 .btn-addToCart-productDetail:hover {
-  background-color: #f2a2ca;
+  background-color: var(--color-acento);
 }
 
 .btn-buyNow-productDetail {
@@ -112,7 +121,7 @@
 }
 
 .btn-buyNow-productDetail:hover {
-  background-color: #f2a2ca;
+  background-color: var(--btn-hover);
 }
 
 /*Carusel de imagenes*/
@@ -267,7 +276,7 @@ img{
   }
   .card-carousel-vertical img{ 
     height: 100% !important;
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
   }
 

@@ -1,7 +1,13 @@
 :root {
-    --color-light-pink: hsl(350°, 100%, 92%);
-    --color-acento: #D8A7B1;
-  }
+  --color-primario: #3E3E3E;
+  --color-secundario:#DCD6CC;
+  --color-acento: #88B04B;
+  --btn-hover:#6A994E;
+  --color-texto-banner: #6A994E;
+  --transition-fast: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
   
 
 /* primer Container  de Formularios */
@@ -315,7 +321,7 @@ font-size: 50px;
 }
 .badgeColor{
     color: black;
-    background: var(--bs-danger-border-subtle);
+    background: var(--color-acento);
     padding: 8px 10px;
   
 }
